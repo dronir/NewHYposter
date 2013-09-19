@@ -1,4 +1,4 @@
-\ProvidesClass{test1}[2013/09/18 test1 class (GK, MW)]
+\ProvidesClass{test1}[2013/09/18 test1 class]
 \NeedsTeXFormat{LaTeX2e}[1995/06/01]
 
 \LoadClass[onecolumn]{article}
@@ -49,7 +49,7 @@
 }
 
 % Raise warning for unknown options
-\DeclareOption*{\PackageWarning{test1}{Unknown Option \CurrentOption}}
+\DeclareOption*{\ClassWarning{test1}{Unknown Option \CurrentOption}}
 
 % Set default options
 \ExecuteOptions{threecolumn,nobalance,roll36in,portrait}
@@ -57,58 +57,59 @@
 % Process the options given
 \ProcessOptions\relax
 
+% Set paper and text sizes based on paper size selection
 \ifaroll
-   \setlength{\paperwidth}{119cm}
-   \setlength{\paperheight}{88cm}
-   \setlength{\textwidth}{116cm}
-   \setlength{\textheight}{88cm}
+    \setlength{\paperwidth}{119cm}
+    \setlength{\paperheight}{88cm}
+    \setlength{\textwidth}{116cm}
+    \setlength{\textheight}{88cm}
 \else\ifazero
-   \setlength{\paperwidth}{118.82cm}
-   \setlength{\paperheight}{83.96cm}
-   \setlength{\textwidth}{117.82cm}
-   \setlength{\textheight}{82.96cm}
+    \setlength{\paperwidth}{118.82cm}
+    \setlength{\paperheight}{83.96cm}
+    \setlength{\textwidth}{117.82cm}
+    \setlength{\textheight}{82.96cm}
 \else\ifaone
-   \setlength{\paperwidth}{83.96cm}
-   \setlength{\paperheight}{59.4cm}
-   \setlength{\textwidth}{83.96cm}
-   \setlength{\textheight}{58.4cm}
+    \setlength{\paperwidth}{83.96cm}
+    \setlength{\paperheight}{59.4cm}
+    \setlength{\textwidth}{83.96cm}
+    \setlength{\textheight}{58.4cm}
 \else\ifatwo
-   \setlength{\paperwidth}{59.4cm}
-   \setlength{\paperheight}{41.98cm}
-   \setlength{\textwidth}{58.4cm}
-   \setlength{\textheight}{40.98cm}
+    \setlength{\paperwidth}{59.4cm}
+    \setlength{\paperheight}{41.98cm}
+    \setlength{\textwidth}{58.4cm}
+    \setlength{\textheight}{40.98cm}
 \else\ifathree
-   \setlength{\paperwidth}{41.98cm}
-   \setlength{\paperheight}{29.7cm}
-   \setlength{\textwidth}{40.98cm}
-   \setlength{\textheight}{28.7cm}
+    \setlength{\paperwidth}{41.98cm}
+    \setlength{\paperheight}{29.7cm}
+    \setlength{\textwidth}{40.98cm}
+    \setlength{\textheight}{28.7cm}
 \else\relax
 \fi\fi\fi\fi\fi
 
-\ifportrait
-   \newdimen\tausch
-   \setlength{\tausch}{\paperwidth}
+\ifportrait % Flip paper and text dimensions
+   \newdimen\s@temp
+   \setlength{\s@temp}{\paperwidth}
    \setlength{\paperwidth}{\paperheight}
-   \setlength{\paperheight}{\tausch}
-   \setlength{\tausch}{\textwidth}
+   \setlength{\paperheight}{\s@temp}
+   \setlength{\s@temp}{\textwidth}
    \setlength{\textwidth}{\textheight}
-   \setlength{\textheight}{\tausch}
+   \setlength{\textheight}{\s@temp}
 \else\relax
 \fi
 
 \input{a0size.sty}
-\renewcommand{\tiny}{\fontsize{12}{14}\selectfont}
-\renewcommand{\scriptsize}{\fontsize{14.4}{18}\selectfont}   
-\renewcommand{\footnotesize}{\fontsize{17.28}{22}\selectfont}
-\renewcommand{\small}{\fontsize{20.74}{25}\selectfont}
-\renewcommand{\normalsize}{\fontsize{24.88}{30}\selectfont}
-\renewcommand{\large}{\fontsize{29.86}{37}\selectfont}
-\renewcommand{\Large}{\fontsize{35.83}{45}\selectfont}
-\renewcommand{\LARGE}{\fontsize{43}{54}\selectfont}
-\renewcommand{\huge}{\fontsize{51.6}{64}\selectfont}
-\renewcommand{\Huge}{\fontsize{61.92}{77}\selectfont}
-\newcommand{\veryHuge}{\fontsize{74.3}{93}\selectfont}
-\newcommand{\VeryHuge}{\fontsize{89.16}{112}\selectfont}
+\renewcommand{\tiny}{\fontsize{14.4}{18}\selectfont}
+\renewcommand{\scriptsize}{\fontsize{17.28}{22}\selectfont}   
+\renewcommand{\footnotesize}{\fontsize{20.74}{25}\selectfont}
+\renewcommand{\small}{\fontsize{24.88}{30}\selectfont}
+\renewcommand{\normalsize}{\fontsize{29.86}{37}\selectfont}
+\renewcommand{\large}{\fontsize{35.83}{45}\selectfont}
+\renewcommand{\Large}{\fontsize{43}{54}\selectfont}
+\renewcommand{\LARGE}{\fontsize{51.6}{64}\selectfont}
+\renewcommand{\huge}{\fontsize{61.92}{77}\selectfont}
+\renewcommand{\Huge}{\fontsize{74.3}{93}\selectfont}
+\newcommand{\veryHuge}{\fontsize{89.16}{112}\selectfont}
+\newcommand{\VeryHuge}{\fontsize{107}{134}\selectfont}
 \newcommand{\VERYHuge}{\fontsize{107}{134}\selectfont}
 \renewcommand{\section}{\@startsection {section}{1}{\z@}%
   {-3.5ex \@plus -1ex \@minus -.2ex}%
