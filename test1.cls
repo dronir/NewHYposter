@@ -3,6 +3,7 @@
 
 \LoadClass[onecolumn]{article}
 
+%\RequirePackage{xkeyval}
 \RequirePackage{float}
 \RequirePackage{multicol}
 \RequirePackage{cmbright}
@@ -11,7 +12,7 @@
 \RequirePackage{fancyhdr}
 \RequirePackage{magaz}
 \RequirePackage{hyphenat}
-%\RequirePackage{setspace}
+\RequirePackage{fp}
 
 
 % Define colour schemes
@@ -238,7 +239,7 @@
 \DeclareOption{landscape}{\PassOptionsToPackage{landscape}{geometry}}
 
 %\DeclareOption{roll36in}{\arolltrue}
-\DeclareOption{a0paper}{\PassOptionsToPackage{a0paper}{geometry}\edef\fontscale{0.70710678}}
+\DeclareOption{a0paper}{\PassOptionsToPackage{a0paper}{geometry}\edef\fontscale{1.0}}
 \DeclareOption{a1paper}{\PassOptionsToPackage{a1paper}{geometry}\edef\fontscale{0.70710678}}
 \DeclareOption{a2paper}{\PassOptionsToPackage{a2paper}{geometry}\edef\fontscale{0.5}}
 \DeclareOption{a3paper}{\PassOptionsToPackage{a3paper}{geometry}\edef\fontscale{0.35355339}}
@@ -257,33 +258,35 @@
 }
 
 \DeclareOption{lotsmallertitle}{%
-    \def\@titlesize{\LARGE}
+    \def\title@size{\LARGE}
 }
 \DeclareOption{smallertitle}{%
-    \def\@titlesize{\huge}
+    \def\title@size{\huge}
 }
 \DeclareOption{normaltitle}{%
-    \def\@titlesize{\Huge}
+    \def\title@size{\Huge}
 }
 \DeclareOption{ragged}{%
     \raggedright
 }
 \DeclareOption{smallerauthor}{%
-    \def\@authorsize{\normalsize}
-    \def\@affsize{\scriptsize}
+    \def\author@size{\normalsize}
+    \def\aff@size{\scriptsize}
 }
 \DeclareOption{normalauthor}{%
-    \def\@authorsize{\large}
-    \def\@affsize{\footnotesize}
+    \def\author@size{\large}
+    \def\aff@size{\footnotesize}
 }
 
 \DeclareOption{lowercasetitle}{%
-    \renewcommand{\title}[1]{\def\@title{#1}}
+    \renewcommand{\title}[1]{\edef\@title{#1}}
 }
 \DeclareOption{uppercasetitle}{%
     \renewcommand{\title}[1]{\def\@title{\MakeUppercase{#1}}}
 }
 
+%\DeclareOption{scale}[1.0]{\edef\myfontscale{#1}}
+\edef\myfontscale{1.2}
 
 % Raise warning for unknown options
 \DeclareOption*{\ClassWarning{test1}{Unknown Option \CurrentOption}}
@@ -295,23 +298,115 @@
 \ProcessOptions\relax
 
 
+\FPupn{\myfontscale}{myfontscale fontscale * 2 round}
 
-\input{a0size.sty}
-\renewcommand{\tiny}{\fontsize{14.4}{18}\selectfont}
-\renewcommand{\scriptsize}{\fontsize{17.28}{22}\selectfont}   
-\renewcommand{\footnotesize}{\fontsize{20.74}{25}\selectfont}
-\renewcommand{\small}{\fontsize{24.88}{30}\selectfont}
-\renewcommand{\normalsize}{\fontsize{29.86}{37}\selectfont}
-\renewcommand{\large}{\fontsize{35.83}{45}\selectfont}
-\renewcommand{\Large}{\fontsize{43}{54}\selectfont}
-\renewcommand{\LARGE}{\fontsize{51.6}{64}\selectfont}
-\renewcommand{\huge}{\fontsize{61.92}{77}\selectfont}
-\renewcommand{\Huge}{\fontsize{74.3}{93}\selectfont}
-\newcommand{\veryHuge}{\fontsize{89.16}{112}\selectfont}
-\newcommand{\VeryHuge}{\fontsize{107}{134}\selectfont}
-\newcommand{\VERYHuge}{\fontsize{107}{134}\selectfont}
 
-\renewcommand{\section}     {\@startsection {section}{1}{\z@}%
+%\input{a0size.sty}
+%\renewcommand{\tiny}{\fontsize{14.4}{18}\selectfont}
+%\renewcommand{\scriptsize}{\fontsize{17.28}{22}\selectfont}   
+%\renewcommand{\footnotesize}{\fontsize{20.74}{25}\selectfont}
+%\renewcommand{\small}{\fontsize{24.88}{30}\selectfont}
+%\renewcommand{\normalsize}{\fontsize{29.86}{37}\selectfont}
+%\renewcommand{\large}{\fontsize{35.83}{45}\selectfont}
+%\renewcommand{\Large}{\fontsize{43}{54}\selectfont}
+%\renewcommand{\LARGE}{\fontsize{51.6}{64}\selectfont}
+%\renewcommand{\huge}{\fontsize{61.92}{77}\selectfont}
+%\renewcommand{\Huge}{\fontsize{74.3}{93}\selectfont}
+%\newcommand{\veryHuge}{\fontsize{89.16}{112}\selectfont}
+%\newcommand{\VeryHuge}{\fontsize{107}{134}\selectfont}
+%\newcommand{\VERYHuge}{\fontsize{107}{134}\selectfont}
+
+\edef\fontSizeX{12}\edef\fontSizeY{14}
+\FPupn{\resulttinyX}{myfontscale fontSizeX * 2 round}
+\FPupn{\resulttinyY}{myfontscale fontSizeY * 2 round}
+\renewcommand*{\tiny}{\fontsize{\resulttinyX}{\resulttinyY}\selectfont}
+
+\edef\fontSizeX{14.4}\edef\fontSizeY{18}   
+\FPupn{\resultscriptsizeX}{myfontscale fontSizeX * 2 round}
+\FPupn{\resultscriptsizeY}{myfontscale fontSizeY * 2 round}
+\renewcommand*{\scriptsize}{\fontsize{\resultscriptsizeX}{\resultscriptsizeY}\selectfont}
+
+\edef\fontSizeX{17.28}\edef\fontSizeY{22}
+\FPupn{\resultfootnotesizeX}{myfontscale fontSizeX * 2 round}
+\FPupn{\resultfootnotesizeY}{myfontscale fontSizeY * 2 round}
+\renewcommand*{\footnotesize}{\fontsize{\resultfootnotesizeX}{\resultfootnotesizeY}\selectfont}
+
+\edef\fontSizeX{20.74}\edef\fontSizeY{25}
+\FPupn{\resultsmallX}{myfontscale fontSizeX * 2 round}
+\FPupn{\resultsmallY}{myfontscale fontSizeY * 2 round}
+\renewcommand*{\small}{\fontsize{\resultsmallX}{\resultsmallY}\selectfont}
+
+\edef\fontSizeX{24.88}\edef\fontSizeY{30}
+\FPupn{\resultnormalsizeX}{myfontscale fontSizeX * 2 round}
+\FPupn{\resultnormalsizeY}{myfontscale fontSizeY * 2 round}
+\renewcommand*{\normalsize}{\fontsize{\resultnormalsizeX}{\resultnormalsizeY}\selectfont}
+
+\edef\fontSizeX{29.86}\edef\fontSizeY{37}
+\FPupn{\resultlargeX}{myfontscale fontSizeX * 2 round}
+\FPupn{\resultlargeY}{myfontscale fontSizeY * 2 round}
+\renewcommand*{\large}{\fontsize{\resultlargeX}{\resultlargeY}\selectfont}
+
+\edef\fontSizeX{35.83}\edef\fontSizeY{45}
+\FPupn{\resultLargeX}{myfontscale fontSizeX * 2 round}
+\FPupn{\resultLargeY}{myfontscale fontSizeY * 2 round}
+\renewcommand*{\Large}{\fontsize{\resultLargeX}{\resultLargeY}\selectfont}
+
+\edef\fontSizeX{43}\edef\fontSizeY{54}
+\FPupn{\resultLARGEX}{myfontscale fontSizeX * 2 round}
+\FPupn{\resultLARGEY}{myfontscale fontSizeY * 2 round}
+\renewcommand*{\LARGE}{\fontsize{\resultLARGEX}{\resultLARGEY}\selectfont}
+
+\edef\fontSizeX{51.6}\edef\fontSizeY{64}
+\FPupn{\resulthugeX}{myfontscale fontSizeX * 2 round}
+\FPupn{\resulthugeY}{myfontscale fontSizeY * 2 round}
+\renewcommand*{\huge}{\fontsize{\resulthugeX}{\resulthugeY}\selectfont}
+
+\edef\fontSizeX{61.92}\edef\fontSizeY{77}
+\FPupn{\resultHugeX}{myfontscale fontSizeX * 2 round}
+\FPupn{\resultHugeY}{myfontscale fontSizeY * 2 round}
+\renewcommand*{\Huge}{\fontsize{\resultHugeX}{\resultHugeY}\selectfont}
+
+\edef\fontSizeX{74.3}\edef\fontSizeY{93}
+\FPupn{\resultveryHugeX}{myfontscale fontSizeX * 2 round}
+\FPupn{\resultveryHugeY}{myfontscale fontSizeY * 2 round}
+\newcommand*{\veryHuge}{\fontsize{\resultveryHugeX}{\resultveryHugeY}\selectfont}
+
+\edef\fontSizeX{89.16}\edef\fontSizeY{112}
+\FPupn{\resultVeryHugeX}{myfontscale fontSizeX * 2 round}
+\FPupn{\resultVeryHugeY}{myfontscale fontSizeY * 2 round}
+\newcommand*{\VeryHuge}{\fontsize{\resultVeryHugeX}{\resultVeryHugeY}\selectfont}
+
+\edef\fontSizeX{107}\edef\fontSizeY{134}
+\FPupn{\resultVERYHugeX}{myfontscale fontSizeX * 2 round}
+\FPupn{\resultVERYHugeY}{myfontscale fontSizeY * 2 round}
+\newcommand*{\VERYHuge}{\fontsize{\resultVERYHugeX}{\resultVERYHugeY}\selectfont}
+
+% adapt list indention (e.g. itemize/enumeration/... see beamer docu)
+\edef\labelWidthValue{1}            % 1em label width
+\edef\labelSepValue{1}              % 1em label separator width
+\edef\indentionLevelValuei{4}       % 4em indention for first level for an A0 poster
+\edef\indentionLevelValueii{2.2}    % etc. ...
+\edef\indentionLevelValueiii{1.87}
+%\edef\indentionLevelValueiiii{1.7}
+%\edef\indentionLevelValueiiiii{1}
+%\edef\indentionLevelValueiiiiii{1}
+\FPupn{\labelWidthValue}{labelWidthValue myfontscale * 2 round}
+\FPupn{\labelSepValue}{labelSepValue myfontscale * 2 round}
+\FPupn{\indentionLevelValuei}{indentionLevelValuei myfontscale * 2 round}
+\FPupn{\indentionLevelValueii}{indentionLevelValueii myfontscale * 2 round}
+\FPupn{\indentionLevelValueiii}{indentionLevelValueiii myfontscale * 2 round}
+%\FPupn{\indentionLevelValueiiii}{indentionLevelValueiiii myfontscale * 2 round}
+%\FPupn{\indentionLevelValueiiiii}{indentionLevelValueiiiii myfontscale * 2 round}
+%\FPupn{\indentionLevelValueiiiiii}{indentionLevelValueiiiiii myfontscale * 2 round}
+\setlength{\leftmargini}{\indentionLevelValuei em}%
+\setlength{\leftmarginii}{\indentionLevelValueii em}%
+\setlength{\leftmarginiii}{\indentionLevelValueiii em}%
+\setlength{\labelwidth}{\labelWidthValue em}%
+\setlength{\labelsep}{\labelSepValue em}%
+
+
+
+\renewcommand{\section}{\@startsection{section}{1}{\z@}%
   {-2.5ex \@plus -1ex \@minus -.2ex}%
   {0.3ex \@plus.2ex}%
   {\reset@font\large\bfseries\sffamily\color{TDK}}}
@@ -327,8 +422,8 @@
 
 % Define new title commands
 
-\renewcommand{\thanks}[1]{\def\@thanks{#1}}
-\newcommand{\affiliation}[1]{\def\@aff{#1}}
+\renewcommand{\thanks}[1]{\edef\@thanks{#1}}
+\newcommand{\affiliation}[1]{\edef\@aff{#1}}
 
 %\setlength\smallskipamount{8pt plus 2pt minus 2pt}
 %\setlength\medskipamount{16pt plus 4pt minus 4pt}
@@ -360,22 +455,23 @@
 
 \renewcommand{\headrulewidth}{0.8pt}
 
+\edef\flameSize{11}
+\FPupn{\flameSize}{myfontscale flameSize * 2 round}
+
 \lhead{\hbox to \hsize{%
-    \hbox{\vtop{\vskip -0.6cm \hbox{\includegraphics[height=11cm]{\flame}}}}%
-    \hbox{\vtop{\vskip 0pt \hbox{\parbox[b][10cm][c]{44cm}{\raggedright \@titlesize \FirstLine{\@title}} }}}%
+    \hbox{\vtop{\vskip -0.6cm \hbox{\includegraphics[height=\flameSize cm]{\flame}}}}%
+    \hbox{\vtop{\vskip 0pt \hbox{\parbox[b][10cm][c]{44cm}{\title@size \FirstLine{\@title}} }}}%
     \hfill\hbox{\vtop{\vskip 0.5cm \hbox{%
-        \parbox[b][10cm][b]{20cm}{\textcolor{black}{\nohyphens {\@authorsize \@author \\ \@affsize \@aff}}}}%
+        \parbox[b][10cm][b]{20cm}{\textcolor{black}{\nohyphens {\author@size \@author \\ \aff@size \@aff}}}}%
     }}%
-}}%
-    %
+}}
 
        
 
 \chead{}\rhead{}\cfoot{}
 
 \lfoot{\@thanks}
-\rfoot{\small%
-\textcolor{grey55}{HELSINGIN YLIOPISTO\\HELSINGFORS UNIVERSITET\\UNIVERSITY OF HELSINKI\\}%
+\rfoot{\small\textcolor{grey55}{HELSINGIN YLIOPISTO\\HELSINGFORS UNIVERSITET\\UNIVERSITY OF HELSINKI\\}%
 \textcolor{TDK}{\tdknimi\\ \tdknamn\\ \tdkname}%
 }
 
