@@ -1,57 +1,140 @@
-\documentclass[a0paper]{test1}
+\documentclass[a0paper,smallertitle]{test1}
 
-\title{Exemplia posteris}
-\author{Auctor Primae}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{hyperref}
+\usepackage{amsmath,amsthm, amssymb}
+
+
+\title{\LaTeX{} posters for the University of Helsinki, made easy by HYPoster}
+\author{Olli Wilkman}
+\affiliation{Department of Physics, University of Helsinki}
+\thanks{}
+
 
 \begin{document}
 
-\section*{Conditio}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc bibendum tellus non orci varius aliquet nec quis quam. Donec quis erat dolor. Pellentesque ullamcorper nunc quis elit malesuada venenatis. Nullam risus nibh, elementum id lorem sed, venenatis mollis orci. Curabitur nec condimentum neque. Integer cursus consequat dignissim. Donec aliquet tempor diam a bibendum. Pellentesque at dapibus ipsum. Curabitur blandit diam id mi luctus facilisis. Aliquam id interdum metus.
+\section*{\LaTeX~posters made easier}
+The \texttt{HYposter} style enables you to make scientific posters with a University of Helsinki look using \LaTeX. 
 
-\begin{equation}
-    f(a) = \int_C |z|^a dz
-\end{equation}
-    
+The official poster templates for the university are available only for Microsoft PowerPoint and Adobe InDesign, expensive pieces of software which are not easily available. \LaTeX, on the other hand, is free and works on almost all commonly used computer systems. It also has superior capabilities in typesetting mathematical formulas, which makes it popular among scientists.
 
-Sed adipiscing bibendum orci, at pellentesque lectus aliquam at. Etiam pulvinar vitae urna at auctor. Quisque a pellentesque ante, nec vehicula sem. Integer libero erat, semper nec mauris vitae, consequat tempus eros. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam vitae felis pharetra, bibendum nisl in, porttitor tortor. Ut pellentesque libero sit amet nunc dapibus ullamcorper pulvinar eu eros. Nunc pellentesque venenatis ante. Quisque a massa magna. Duis at placerat tortor, vel pulvinar ligula. Aenean lobortis turpis vel pellentesque sodales.
+
+\section*{The look}
+The university has two poster styles, that silly one with the gigantic logo and header taking up a third of the page, and the tighter one. This poster style tries to emulate the second one. Though it does not exactly conform to the official poster style of the university, but it tries to do a good enough job. 
+
+The background of the poster is white and the text is black. The block headings are in the faculty colour. The first line of the poster title is in the faculty colour and the rest in neutral grey. In the lower right corner the name of the university is set in neutral grey and the faculty name in the faculty colour.
+Some space for things such as logos of cooperating or supporting institutes is provided in the lower left.
+
+The layout of the official poster and this example is three-column, but you can also use two columns.
+
+It is not possible to use the university's official fonts, not least because of the rather strict license they come under. However, the sans-serif font used here is a reasonable replacement.
+
+
+\section*{Using the package}
+\texttt{HYposter} is a \LaTeX document class, which typesets large format posters.
+
+See the \texttt{README} and \texttt{INSTALL} files for more details about installation and usage of the package (though they assume a basic knowledge of \LaTeX).
+
+
+
+
+
+\section*{Versatility}
+This is the cool part: the poster supports \emph{all} of the university's different colour themes. It also automatically changes the name of the faculty or department in the lower right corner. Everything happens under the hood, and the user does not need to worry about the appearance of the poster at all, only the contents.
+
+The style supports all of the university's different faculties and special departments which have an official colour scheme.
+
+
+\section*{The colour options}
+
+The colour scheme of the following faculties and departments is supported. This is a comprehensive list of all the official color schemes defined for our university.
 
 \begin{itemize}
-    \item Consectetur
-    \item Curabitur
-    \item Ullamcorper
+    \item Faculty of Agriculture and Forestry 
+    \item Faculty of Arts 
+    \item Faculty of Behavioural Sciences 
+    \item Faculty of Biological and Environmental Sciences 
+    \item Faculty of Law 
+    \item Faculty of Medicine 
+    \item Faculty of Pharmacy 
+    \item Faculty of Science 
+    \item Faculty of Social Sciences 
+    \item Faculty of Theology 
+    \item Faculty of Veterinary Medicine 
+    \item Swedish School of Social Science
+    \item Aleksanteri Institute
+    \item Center for Information Technology
+    \item Center for Properties and Facilities
+    \item Helsinki Collegium for Advanced Studies
+    \item Institute of Biotechnology
+    \item Laboratory Animal Centre
+    \item Language Centre
+    \item Neuroscience Center
+    \item Open University
+    \item Palmenia Centre for Continuing Education
+    \item Ruralia Institute
+    \item University of Helsinki Library
+    \item None (plain black and white)
 \end{itemize}
 
-\section*{Primae}
-Vestibulum at est blandit, commodo leo eget, volutpat lectus. Curabitur ultricies auctor nunc, sit amet semper nisl hendrerit sit amet. Proin at nibh in lorem vehicula sagittis. Sed rhoncus commodo nunc, quis blandit metus rhoncus a. Duis molestie ullamcorper purus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Fusce non arcu non ipsum aliquet bibendum nec ac orci. Aliquam erat volutpat. Pellentesque sit amet lobortis urna. Aliquam in iaculis nunc, rutrum venenatis dolor. Quisque tortor erat, lobortis vestibulum urna et, interdum dignissim metus. Etiam turpis erat, pharetra non lacus quis, aliquam bibendum purus. Pellentesque diam neque, fermentum fermentum varius eget, elementum eget magna.
 
-Nunc elementum feugiat eleifend. Nulla euismod dui vel hendrerit porttitor. Etiam egestas lorem metus, sit amet ultrices felis bibendum ullamcorper. Sed egestas orci sed lorem imperdiet viverra. Nulla magna sem, dignissim a nunc id, pretium lobortis sapien. Morbi rhoncus sodales mollis. Fusce aliquam ligula eu ante euismod, et molestie metus lacinia.
+\section*{Can I help?}
+There are still various issues with the style. There are some problems with math fonts which I haven't been able to solve to my satisfaction.
 
-\begin{enumerate}
-    \item Consectetur
-    \item Curabitur
-    \item Ullamcorper
-\end{enumerate}
-
-\section*{Secundae}
-Praesent quis rutrum est. Morbi ultricies massa a urna molestie, vitae auctor risus aliquet. In ut vestibulum ante, nec tincidunt lacus. In blandit lectus posuere tincidunt tempor. Suspendisse ac vestibulum elit, in fringilla diam. In ultricies ultrices massa. Suspendisse sed ullamcorper velit, sit amet ornare libero.
-
-\begin{description}
-    \item[Primae] Consectetur adipiscing elit. Nunc bibendum tellus non orci.
-    \item[Secundae] Curabitur nec condimentum neque.
-    \item[Tertiae] Ullamcorper nunc quis elit malesuada venenatis
-\end{description}
-
-Aenean eget molestie urna. Pellentesque tincidunt nunc vitae neque semper, et egestas elit cursus. Praesent sodales lacus vel risus consequat, quis bibendum ante consequat. Maecenas tempus non diam quis faucibus. Nullam varius ullamcorper turpis in congue. Nulla facilisi. Vivamus scelerisque commodo risus, nec cursus metus lobortis a. Donec porta elit vel risus pharetra, sit amet venenatis tellus feugiat. Etiam dapibus faucibus elit et consequat. Nullam hendrerit quam non nisl commodo fermentum. Sed rhoncus ligula ut ante varius, id feugiat nibh iaculis. Sed blandit, dolor eu rhoncus feugiat, metus dolor lobortis magna, quis pellentesque leo est vel lacus. Nulla felis enim, rhoncus vitae lacinia volutpat, eleifend eget mi.
+Contributions and comments are always welcome. Contribute on Github or send email to \url{olli.wilkman@iki.fi}.
 
 
-\section*{Tertiae}
-Nulla facilisi. Phasellus nibh risus, fermentum ut vehicula vel, placerat in elit. Maecenas quis rutrum orci. Nulla facilisi. Sed tincidunt justo nec mauris lacinia condimentum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque sodales sollicitudin suscipit. Praesent venenatis in nunc vitae malesuada. Aliquam et varius arcu. Sed pellentesque convallis suscipit. Nulla in velit feugiat, rhoncus eros eget, sagittis nunc. Duis at mauris sem. Vivamus malesuada leo magna, sed condimentum nisl scelerisque id. Ut ut justo hendrerit, congue nisi eu, auctor turpis. Suspendisse euismod lacus non mi tincidunt viverra.
 
-Ut rutrum dui nisl, mollis dictum urna tempus id. Vivamus tempus cursus eros vitae auctor. Integer fermentum porttitor ipsum sit amet feugiat. Vestibulum tristique vel elit a imperdiet. Maecenas libero risus, commodo sit amet neque vulputate, venenatis sollicitudin purus. Phasellus eros urna, vulputate sit amet sollicitudin a, gravida non dolor. Vivamus in elit elementum, hendrerit libero eget, convallis nunc. Fusce varius cursus molestie. Sed euismod adipiscing nunc, eget dignissim metus malesuada a. Maecenas sed congue elit, quis fringilla nisi. Quisque a nibh vestibulum, gravida odio ac, auctor dui. Duis ornare risus ac neque ultricies imperdiet. Vivamus ornare a felis vitae lobortis.
+\section*{Example 1: math}
+You can more or less use all the nice math features of \LaTeX~in your poster:
+
+\begin{equation}
+    \int_{-\infty}^{\infty} \frac{1}{\sqrt{2 \pi \sigma^2}} \exp\left(-\frac{(x - \mu)^2}{2 \sigma^2} \right) dx = 1
+\end{equation}
+
+\begin{equation}
+    P(x) = \left\{ \begin{array}{lr} \frac{1}{6}x(x-1)&,\; 0 \leq x \leq 1 \\ 0, & \text{otherwise}  \end{array} \right.
+\end{equation}
+
+\begin{equation}
+    \sum_{n=0}^\infty \frac{1}{2^n} = 2
+\end{equation}
 
 
-\section*{Quartae}
-Nulla porttitor vulputate neque, eget molestie urna tristique quis. Proin tempor tincidunt lectus, id posuere nunc scelerisque vitae. Aenean urna orci, pellentesque nec volutpat vitae, sodales ac neque. Ut sit amet purus id justo accumsan volutpat mattis ac nulla. Integer porta placerat turpis, a sodales eros dictum sit amet. Aenean et laoreet risus. Donec vitae convallis turpis, non lobortis risus. In purus mi, faucibus at pretium interdum, accumsan a dui. Phasellus mattis vulputate nunc, sed cursus nisl tempus ut. Praesent mattis magna sed molestie semper. Sed vulputate adipiscing euismod.
+
+\section*{Example 2: Images and References}
+Including images is simple.  With pdf\LaTeX, you can use images in many common formats, including PNG and JPEG, though in a poster you should strive to use scaleable graphics, for example in PDF format. Due to a limitation of pdf\LaTeX, EPS graphics do not work, but they can be converted to PDF.
+    
+Using labels to refer to figures and tables also works like it should, as demonstrated by these references to Figure \ref{examplefigure} and Table \ref{tableexample}.
+
+\begin{figure}[H]
+\includegraphics[width=\columnwidth]{zeros.png}
+\caption{Some mathematical plot \label{examplefigure}}
+\end{figure}
+
+Image courtesy of Janne Korhonen.
+
+
+\section*{Example 3: Tabulated table}
+
+Table environments work, too.
+
+\begin{table}[H]
+    \begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}} c|r|r|r }
+        $x$ & $x^2$ & $x^3$ & $x^4$\\
+        \hline
+        1 &  1 &   1 &   1 \\
+        2 &  4 &   8 &  16 \\
+        3 &  9 &  27 &  81 \\
+        4 & 16 &  64 & 256 \\
+        5 & 25 & 125 & 625 \\
+    \end{tabular*}
+    \caption{Some natural numbers and their first few powers. \label{tableexample}}
+\end{table}
+
+\section*{Where can I find it?}
+HYposter is hosted at Github for ease of development and cooperation. Get it at \url{https://github.com/dronir/HYposter}.
 
 
 
