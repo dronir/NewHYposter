@@ -1,4 +1,4 @@
-\ProvidesClass{test1}[2013/09/18 test1 class]
+\ProvidesClass{HYposter}[2015/03/17 HYposter class]
 \NeedsTeXFormat{LaTeX2e}[1995/06/01]
 
 
