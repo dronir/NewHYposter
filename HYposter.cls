@@ -7,7 +7,6 @@
 \RequirePackage{xkeyval}
 \RequirePackage{float}
 \RequirePackage{multicol}
-\RequirePackage{cmbright}
 \RequirePackage{xcolor}
 \RequirePackage{graphicx}
 \RequirePackage{fancyhdr}
@@ -15,6 +14,8 @@
 \RequirePackage{fp}
 \RequirePackage{etoolbox}
 \RequirePackage{magaz}
+\RequirePackage{lmodern}
+\renewcommand*\familydefault{\sfdefault}
 \RequirePackage[onecolumn,margin=3cm]{geometry}
 
 
